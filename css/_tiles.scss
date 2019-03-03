@@ -1,0 +1,98 @@
+.tiles {
+    
+}
+
+@keyframes gridIn {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+.grid {
+    background-size: 16px 16px !important;
+    @include x2 {
+        background-size: 32px 32px !important;
+    }
+    @include x4 {
+        background-size: 64px 64px !important;
+    }
+    animation: gridIn 0.6s;
+    position: absolute;
+    width:100%;
+    height:100%;
+    
+    .location {
+        position: absolute;
+        z-index: 9;
+        right:2px;
+        top:2px;
+        font-size:10px;
+        padding: 3px 5px;
+        background: #f0f0f0;
+        color:#151515;
+        text-transform: uppercase;
+        vertical-align: middle;
+        border:1px #040404 solid;
+        text-rendering: optimizeLegibility;
+        @include x2 {
+            font-size: 20px;
+            padding: 6px 10px;
+            border-width: 2px;
+            right:4px;
+            top:4px;
+        }
+        @include x4 {
+            font-size: 40px;
+            padding: 12px 20px;
+            border-width: 4px;
+            right:4px;
+            top:4px;
+        }
+        
+        animation: fadeOut 2.5s 0s forwards;
+        @keyframes fadeOut {
+            0% {
+                opacity:1;
+            }
+            99% {
+                opacity:1;
+            }
+            100% {
+                opacity:0;
+            }
+        }
+    }
+    
+    &[data-environment="castle"] {
+        background: url('../images/bg-castle.png') repeat;
+    }
+    &[data-environment="outside"] {
+        background: url('../images/bg-outside.png') repeat;
+    }
+    &[data-environment="house"] {
+        background: url('../images/bg-house.png') repeat;
+    }
+    
+}
+
+.objects {
+    .grass {
+        background-image: url("../images/floor/grass.png");
+    }
+    .lessgrass {
+        background-image: url("../images/floor/lessgrass.png");
+    }
+    .flowers {
+        background-image: url("../images/floor/flowers.png");
+    }
+    .road {
+        background-image: url("../images/floor/road.png");
+    }
+    .stairs-down {
+        background-image: url("../images/floor/stairs-down.png");
+    }
+    
+}

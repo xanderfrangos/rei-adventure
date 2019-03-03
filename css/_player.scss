@@ -1,0 +1,50 @@
+#rachel {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:9;
+    width:16px;
+    height:16px;
+    @include x2 {
+        width: 32px;
+        height: 32px;
+    }
+    @include x4 {
+        width: 64px;
+        height: 64px;
+    }
+    
+    background: url("../images/player/rachel_0010_d1.png") no-repeat;
+    background-size: cover;
+    
+    &[data-direction="down"] {
+        background-image: url("../images/player/rachel_0010_d1.png");
+        &[data-step="2"] {
+            background-image: url("../images/player/rachel_0009_d2.png");
+        }
+    }
+    &[data-direction="up"] {
+        background-image: url("../images/player/rachel_0004_u1.png");
+        &[data-step="2"] {
+            background-image: url("../images/player/rachel_0003_u2.png");
+        }
+    }
+    &[data-direction="right"] {
+        background-image: url("../images/player/rachel_0008_r1.png");
+        &[data-step="2"] {
+            background-image: url("../images/player/rachel_0007_r2.png");
+        }
+    }
+    &[data-direction="left"] {
+        background-image: url("../images/player/rachel_0006_l1.png");
+        &[data-step="2"] {
+            background-image: url("../images/player/rachel_0005_l2.png");
+        }
+    }
+    &[data-direction="sleep"] {
+        background-image: url("../images/player/rachel_0002_sleep1.png") !important;
+    }
+    &[data-direction="awake"] {
+        background-image: url("../images/player/rachel_0001_sleep2.png") !important;
+    }
+}

@@ -1,0 +1,339 @@
+@import "reset";
+
+
+$width-x2: 600px;
+$width-x4: 1200px;
+
+$width-x2: 1px;
+$width-x4: 2px;
+
+html, body {
+    font-family: 'VT323', sans-serif;
+    margin:0;
+    padding:0;
+    background: #111;
+    overflow:hidden;
+}
+body {
+    
+}
+
+@mixin x2 {
+    @media (min-width: $width-x2) {
+        @content;
+    }
+}
+
+
+@mixin x4 {
+    @media (min-width: $width-x4) {
+        @content;
+    }
+}
+
+@import "objects";
+@import "tiles";
+@import "walls";
+@import "player";
+@import "npcs";
+
+main {
+    position:absolute;
+    perspective: 1200;
+    width: 100vw;
+    height: 100vh;
+    background: #111 url("../images/full-bg.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+#blurb {
+    color:white;
+    font-family: "Open Sans", sans-serif;
+    font-size:20px;
+    width:100%;
+    max-width: 974px;
+    margin:0 auto;
+    opacity:0;
+    text-align: center;
+    transition: opacity 0.8s;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate3d(-50%,-50%,0);
+    animation: blurbOut 1.0s forwards;
+    @keyframes blurbOut {
+        from {
+            opacity:1;
+
+        }
+        to {
+            opacity: 0;
+
+        }
+    }
+    img {
+        width: 100%;
+        max-width: 550px;
+        margin: 0 auto 60px;
+        image-rendering: auto;
+        padding: 0 140px 13px;
+        border-bottom: 1px solid white;
+    }
+    span {
+        display: inline-block;
+        border-radius: 6px;
+        font-weight: bold;
+        line-height: 1;
+    }
+    p {
+        margin-bottom: 40px;
+        line-height: 2.5;
+        font-size: 20px;
+    }
+    h3 {
+        border-bottom:4px dotted white;
+        width:408px;
+        padding-bottom:10px;
+        margin-bottom: 35px;
+        font-size:30px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    a.button {
+        padding: 20px;
+        font-size: 32px;
+        text-transform: uppercase;
+        width: 360px;
+        text-align: center;
+        display: inline-block;
+        border: 4px solid white;
+        border-radius: 7px;
+        cursor: pointer;
+        font-weight: bold;
+        line-height: 1;
+        margin-top: 27px;
+        &:hover {
+            color:#151515;
+            background: white;
+        }
+    }
+}
+#preload {
+    img {
+        position:absolute;
+        top:0;
+        left:0;
+        width:1px;
+        height:1px;
+        opacity: 0.01;
+        
+    }
+}
+
+// 160x144
+#screen {
+    width: 160px;
+    height: 144px;
+    left: 57px;
+    top: 45px;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    overflow: hidden;
+    background-color: #888;
+
+    @include x2 {
+        width: 320px;
+        height: 288px;
+        left: 114px;
+        top: 90px;
+    }
+    @include x4 {
+        width: 640px;
+        height: 576px;
+        left: 228px;
+        top: 180px;
+    }
+
+    background: #ccc;
+    position: relative;
+
+    &:before {
+        display: block;
+        position: absolute;
+        content: ' ';
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow:inset 0px 2px 5px 0px rgba(10,10,10,0.8),inset 0 0 70px rgba(10,10,10,0.34);
+        z-index: 99;
+
+        background-size: 1px 1px;
+        image-rendering: auto;
+        @include x2 {
+            background: url("../images/pixel-outline.png") repeat;
+            background-size: 2px 2px;
+            box-shadow:inset 0px 4px 10px 0px rgba(10,10,10,0.8),inset 0 0 140px rgba(10,10,10,0.34);
+        }
+        @include x4 {
+            background-size: 4px 4px;
+            box-shadow:inset 0px 8px 20px 0px rgba(10,10,10,0.8),inset 0 0 280px rgba(10,10,10,0.34);
+            background: url("../images/pixel-grid.png") repeat;
+            background-size: 640px 576px; 
+        }
+    }
+
+    #grid-container {
+        position:absolute;
+        width:100%;
+        height:100%;
+    }
+
+}
+
+* {
+    image-rendering: pixelated;
+}
+
+#wrapper {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+
+}
+
+#gameboy {
+    background: url('../images/gameboy.png') no-repeat center top;
+    background-size: 100% auto;
+    position: absolute;
+    width: 274px;
+    height: 97vh;
+    image-rendering: auto;
+    top: -303px;
+    margin-top: 24vh;
+    left: 50%;
+    transform: translate(-50%,0px);
+    overflow: hidden;
+    //animation: gbIn 1.2s;
+    transform-origin: right top;
+    transition: transform 0.8s 0s, background 0s 1.45s;
+    z-index:2;
+
+    &.off {
+        transform: translate(-50%,110vh);;
+        background-image: url('../images/gameboy-off.png');
+        opacity: 0;
+        
+        #on-screen {
+            opacity:0;
+        }
+        & + #blurb {
+            opacity:1;
+            animation: none;
+        }
+    }
+
+    @include x2 {
+        width: 547px;
+    }
+
+    @include x4 {
+        width: 1094px;
+        height:1881px;
+    }
+}
+
+@keyframes gbIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#debug {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    opacity: 0.75;
+    background:#f8f8f8;
+    font-size:16px;
+    z-index:50;
+
+    @include x2 {
+        font-size:24px;
+    }
+    @include x4 {
+        font-size:48px;
+    }
+}
+
+#on-screen {
+    background:#050505;
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition:opacity 0.1s 1.5s;
+}
+
+
+
+#dialogue-box {
+    display:none;
+    position: absolute;
+    z-index: 10;
+    left: 56px;
+    top: 56px;
+    font-size:10px;
+    padding: 3px 5px;
+    background: #151515;
+    width: 480px;
+    color:#fff;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border:1px #fff solid;
+    text-rendering: optimizeLegibility;
+    font-size: 40px;
+    padding: 12px 20px;
+    border-width: 4px;
+    box-shadow:8px 8px 0 #000;
+    &.show {
+        display:block;
+    }
+    &.title {
+        background:none;
+        border:none;
+        box-shadow: none;
+        top:auto;
+        bottom:56px;
+        padding: 12px 12px;
+        width: 502px;
+    }
+    span + div {
+        margin-top:10px;
+    }
+    div {
+        padding:1px 8px;
+        &.highlighted {
+            color:#151515;
+            background:#fff;
+            animation: cursorBlink 1s 0s alternate infinite;
+            @keyframes cursorBlink {
+                0% { background:#fff; color:#151515; }
+                49% { background:#fff; color:#151515; }
+                51% { background:#bbb; color:#444; }
+                100% { background:#bbb; color:#444 }
+            }
+        }
+    }
+}
+
+
+.is-edge {
+    #gameboy {
+        transition: none !important;
+        animation: none !important;
+    }
+}

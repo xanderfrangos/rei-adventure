@@ -1,0 +1,125 @@
+.king {
+    background-image: url("../images/npcs/king1.png");
+    background-size: 128px !important;
+    &[data-step="2"] {
+        background-image: url("../images/npcs/king2.png");
+    }
+}
+.loki {
+    background-image: url("../images/npcs/loki1.png");
+    background-size: 128px !important;
+    &[data-step="2"] {
+        background-image: url("../images/npcs/loki2.png");
+    }
+}
+.kidb {
+    background-image: url("../images/npcs/kidb1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/kidb2.png");
+    }
+}
+.kidr {
+    background-image: url("../images/npcs/kidr1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/kidr2.png");
+    }
+}
+.kido {
+    background-image: url("../images/npcs/kido1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/kido2.png");
+    }
+}
+.bird {
+    background-image: url("../images/npcs/bird1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/bird2.png");
+    }
+}
+.belle {
+    background-image: url("../images/npcs/belle1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/belle2.png");
+    }
+}
+.beast {
+    background-image: url("../images/npcs/beast1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/beast2.png");
+    }
+}
+.excalibur {
+    background-image: url("../images/npcs/excalibur1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/excalibur2.png");
+    }
+}
+.guitarman {
+    background-image: url("../images/npcs/guitarman1.png");
+    background-size: 92px !important;
+    height: 76px !important;
+    &[data-step="2"] {
+        background-image: url("../images/npcs/guitarman2.png");
+    }
+}
+.bully {
+    background-image: url("../images/npcs/bully1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/bully2.png");
+    }
+}
+.dog {
+    background-image: url("../images/npcs/dog1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/dog2.png");
+    }
+}
+.girl {
+    background-image: url("../images/npcs/girl1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/girl2.png");
+    }
+}
+.headmaster {
+    background-image: url("../images/npcs/headmaster1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/headmaster2.png");
+    }
+}
+.her {
+    background-image: url("../images/npcs/her1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/her2.png");
+    }
+}
+.mom {
+    background-image: url("../images/npcs/mom1.png");
+    background-size: 128px !important;
+    &[data-step="2"] {
+        background-image: url("../images/npcs/mom2.png");
+    }
+}
+.professoru {
+    background-image: url("../images/npcs/professoru1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/professoru2.png");
+    }
+}
+.ron {
+    background-image: url("../images/npcs/ron1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/ron2.png");
+    }
+}
+.secretary {
+    background-image: url("../images/npcs/secretary1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/secretary2.png");
+    }
+}
+.vlad {
+    background-image: url("../images/npcs/vlad1.png");
+    &[data-step="2"] {
+        background-image: url("../images/npcs/vlad2.png");
+    }
+}

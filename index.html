@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=1024">
+        <title>Rei's Adventure!</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="icon" sizes="300x300" href="icon-300x300.png">
+        <link rel="stylesheet" href="css/main.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|VT323' rel='stylesheet' type='text/css'>
+        <script src="js/libs.js"></script>
+        <script src="js/dialogue.js"></script>
+        <script src="js/objects.js"></script>
+        <script src="js/rooms.js"></script>
+        <script src="js/npcs.js"></script>
+    </head>
+    <body>
+        <div id="preload"><img src="images/bg-castle.png" /><img src="images/bg-house.png" /><img src="images/bg-outside.png" /><img src="images/gameboy-off.png" /><img src="images/gameboy.png" /><img src="images/logo.png" /><img src="images/pixel-grid.png" /><img src="images/pixel-outline.png" /><img src="images/scanline.png" /><img src="images/objects/basement-stairs.png" /><img src="images/objects/basement-up.png" /><img src="images/objects/bed.png" /><img src="images/objects/bookshelf.png" /><img src="images/objects/chair.png" /><img src="images/objects/dead.png" /><img src="images/objects/dog.png" /><img src="images/objects/door.png" /><img src="images/objects/dresser.png" /><img src="images/objects/headmaster-creepy.png" /><img src="images/objects/headmaster-statue.png" /><img src="images/objects/headmaster-table.png" /><img src="images/objects/house-door.png" /><img src="images/objects/house-roof.png" /><img src="images/objects/house-window.png" /><img src="images/objects/nightstand.png" /><img src="images/objects/planks.png" /><img src="images/objects/portal-b1.png" /><img src="images/objects/portal-b2.png" /><img src="images/objects/portal-o1.png" /><img src="images/objects/portal-o2.png" /><img src="images/objects/pot.png" /><img src="images/objects/secretary-down.png" /><img src="images/objects/smalltable.png" /><img src="images/objects/table-bottom.png" /><img src="images/objects/table-middle.png" /><img src="images/objects/table-top.png" /><img src="images/objects/table.png" /><img src="images/objects/titlebg.png" /><img src="images/objects/tree.png" /><img src="images/floor/flowers.png" /><img src="images/floor/grass.png" /><img src="images/floor/lessgrass.png" /><img src="images/floor/road.png" /><img src="images/floor/stairs-down.png" /><img src="images/walls/castlewallbottom.png" /><img src="images/walls/castlewallbottomleft.png" /><img src="images/walls/castlewallbottomright.png" /><img src="images/walls/castlewallfar.png" /><img src="images/walls/castlewallleft.png" /><img src="images/walls/castlewallright.png" /><img src="images/walls/castlewalltop.png" /><img src="images/walls/castlewalltopleft.png" /><img src="images/walls/castlewalltopright.png" /><img src="images/walls/fence-inside.png" /><img src="images/walls/fence.png" /><img src="images/walls/houseentrancedown.png" /><img src="images/walls/houseentranceleft.png" /><img src="images/walls/houseentranceright.png" /><img src="images/walls/housewallbottom.png" /><img src="images/walls/housewallbottomleft.png" /><img src="images/walls/housewallbottomright.png" /><img src="images/walls/housewallentrancebottom.png" /><img src="images/walls/housewallentranceleft.png" /><img src="images/walls/housewallentranceleftbottom.png" /><img src="images/walls/housewallentrancelefttop.png" /><img src="images/walls/housewallentranceright.png" /><img src="images/walls/housewallentrancetop.png" /><img src="images/walls/housewallleft.png" /><img src="images/walls/housewallright.png" /><img src="images/walls/housewalltop.png" /><img src="images/walls/housewalltopleft.png" /><img src="images/walls/housewalltopright.png" /><img src="images/player/rachel_0000_sleep3.png" /><img src="images/player/rachel_0001_sleep2.png" /><img src="images/player/rachel_0002_sleep1.png" /><img src="images/player/rachel_0003_u2.png" /><img src="images/player/rachel_0004_u1.png" /><img src="images/player/rachel_0005_l2.png" /><img src="images/player/rachel_0006_l1.png" /><img src="images/player/rachel_0007_r2.png" /><img src="images/player/rachel_0008_r1.png" /><img src="images/player/rachel_0009_d2.png" /><img src="images/player/rachel_0010_d1.png" /><img src="images/npcs/beast1.png" /><img src="images/npcs/beast2.png" /><img src="images/npcs/belle1.png" /><img src="images/npcs/belle2.png" /><img src="images/npcs/bird1.png" /><img src="images/npcs/bird2.png" /><img src="images/npcs/bully1.png" /><img src="images/npcs/bully2.png" /><img src="images/npcs/dog1.png" /><img src="images/npcs/dog2.png" /><img src="images/npcs/excalibur1.png" /><img src="images/npcs/excalibur2.png" /><img src="images/npcs/girl1.png" /><img src="images/npcs/girl2.png" /><img src="images/npcs/guitarman1.png" /><img src="images/npcs/guitarman2.png" /><img src="images/npcs/headmaster1.png" /><img src="images/npcs/headmaster2.png" /><img src="images/npcs/her1.png" /><img src="images/npcs/her2.png" /><img src="images/npcs/kidb1.png" /><img src="images/npcs/kidb2.png" /><img src="images/npcs/kido1.png" /><img src="images/npcs/kido2.png" /><img src="images/npcs/kidr1.png" /><img src="images/npcs/kidr2.png" /><img src="images/npcs/king1.png" /><img src="images/npcs/king2.png" /><img src="images/npcs/loki1.png" /><img src="images/npcs/loki2.png" /><img src="images/npcs/mom1.png" /><img src="images/npcs/mom2.png" /><img src="images/npcs/professoru1.png" /><img src="images/npcs/professoru2.png" /><img src="images/npcs/ron1.png" /><img src="images/npcs/ron2.png" /><img src="images/npcs/secretary1.png" /><img src="images/npcs/secretary2.png" /><img src="images/npcs/vlad1.png" /><img src="images/npcs/vlad2.png" /></div>
+        <main>
+            <div id="gameboy" class="off">
+                <audio src="music/indoors.mp3" preload="auto" loop class="music" id="indoors"></audio>
+                <audio src="music/outdoors.mp3" preload="auto" loop class="music" id="outdoors"></audio>
+                <audio src="music/classrooms.mp3" preload="auto" loop class="music" id="classrooms"></audio>
+                <audio class="music" id="none"></audio>
+                <div id="screen">
+                    <div id="on-screen">
+                        <div id="debug" style="display:none;"><div class="room"><span class="x">-1</span>,<span class="y">-1</span></div></div>
+                        <div id="dialogue-box">
+
+                        </div>
+                        <div id="grid-container"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="blurb">
+                <img src="images/logo.png" />
+                <p>Use the <span>W</span><span>A</span><span>S</span><span>D</span> keys or the <span>arrow keys</span> to move. Hit <span>E</span> or <span>Space</span> to interact with people and objects. </p>
+                <a class="button">Play</a>
+            </div>
+        </main>
+        <script src="js/main.js"></script>
+    </body>
+</html>
