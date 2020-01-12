@@ -1,3 +1,5 @@
+<p align="center"><img src="https://xanderfrangos.com/media/previews/rei-adventure.jpg" width="680" /></p>
+
 # Rei Adventure
 *An HTML5-based game made for my girlfriend's birthday.* 
 
