@@ -4,6 +4,7 @@
 //
 // ///////////////////////////////////////
 
+var gameStarted = false;
 var player = {
     name: "Rachel",
     boyfriend: "Alex",
@@ -85,7 +86,7 @@ function evalDirection(direction) {
     if(player.inDialogue) {
         if(currentDialogue.lastKey == direction)
             return false;
-        else if(direction != "none" || direction == "up" || direction == "down") {
+        else if(direction == "up" || direction == "down") {
             currentDialogue.lastKey = direction;
             if(direction == "up")
                 hightlightDialogeOption(currentDialogue.selected - 1);
@@ -93,6 +94,7 @@ function evalDirection(direction) {
                 hightlightDialogeOption(currentDialogue.selected + 1);
             return false;
         }
+        return false;
     }
     
     if(player.controlsEnabled == false)
@@ -229,6 +231,7 @@ function keyCodeString(keycode,e) {
 
 function keydownEvent(e) {
     var tmpKey = keyCodeString(e.keyCode,e);
+    if(!gameStarted) return false;
     if(tmpKey !== false) {
         if(heldDirection == "none" || heldDirection == tmpKey)
             heldDirection = tmpKey;
@@ -243,7 +246,8 @@ function keydownEvent(e) {
 
 function keyupEvent(e) {
     var tmpKey = keyCodeString(e.keyCode,e);
-    if(player.inDialogue)
+    if(!gameStarted) return false;
+    if(player.inDialogue && (tmpKey == "up" || tmpKey == "down"))
         currentDialogue.lastKey = "none";
     if(tmpKey == "action") {
         isActionDown = false;
@@ -264,6 +268,11 @@ function keyupEvent(e) {
 
 
 function doActivateButton() {
+    if(!gameStarted) {
+        $("a.button").click();
+        return false;
+    }
+
     var tmpAc1 = null;
     var tmpAc2 = null;
     if(isActionDown)
@@ -869,7 +878,7 @@ updateRoomsWithObjectSizes();
 loadRoom(currentRoom, 1, 1);
 $("audio.music").each(function(){this.volume=0.4});
 //$("audio.music").each(function(){this.volume=0});
-$("a.button").click(function(){$("#gameboy").removeClass("off"); $("#wrapper").addClass("shift");});
+$("a.button").click(function(){$("#gameboy").removeClass("off"); $("#wrapper").addClass("shift");setTimeout(() => {gameStarted = true}, 1500)});
 setInterval(saveGame, 8000);
 if(IsEdge())
     $("body").addClass("is-edge");
