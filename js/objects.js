@@ -165,6 +165,7 @@ var objects = [
         width:1,
         height:2,
         solid: true,
+        activate: function(){showDialogue("bookshelf");},
     },
     {
         name:"dresser",
@@ -233,6 +234,7 @@ var objects = [
         width:1,
         height:1,
         solid: true,
+        activate: function(){showDialogue("headmaster-statue");},
     },
     {
         name:"headmaster-creepy",

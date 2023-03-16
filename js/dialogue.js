@@ -132,7 +132,38 @@ var dialogue = [
     },
     {
         id: "bed",
-        text: "This is no time to go back to sleep!"
+        text: "This is no time to go back to sleep!",
+        next: "bedChoice1"
+    },
+    {
+        id: "bedChoice1",
+        choices: [
+            {
+                text:"[Leave it alone]"
+            },
+            {
+                text:"But I'm tired...",
+                next:"bedChoice2"
+            }
+        ]
+    },
+    {
+        id: "bedChoice2",
+        text: "Fine. You give up and go back to bed.",
+        next: "gameOver"
+    },
+    {
+        id: "bookshelf",
+        text: "These books are coated in dust!",
+        next:"bookshelf2"
+    },
+    {
+        id: "bookshelf2",
+        text: "I guess the students aren't big readers."
+    },
+    {
+        id: "headmaster-statue",
+        text: "What the heck is this thing?"
     },
     {
         id: "dresser",
@@ -143,10 +174,10 @@ var dialogue = [
         id: "dresserChoice",
         choices: [
             {
-                text:"Leave it alone"
+                text:"[Leave it alone]"
             },
             {
-                text:"Do it anyway",
+                text:"[Do it anyway]",
                 next:"dresserChoice2"
             }
         ]
