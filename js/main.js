@@ -864,6 +864,24 @@ function IsEdge() {
 
 // ///////////////////////////////////////
 //
+// Gamepad
+//
+// ///////////////////////////////////////
+
+var lastGamepad;
+function bindGamepadKey(gamepad, eventName, id) {
+    gamepad.before(eventName, () => {
+        keydownEvent({ keyCode: id, type: "keydown" });
+    });
+    gamepad.after(eventName, () => {
+        keyupEvent({ keyCode: id, type: "keyup" });
+    }); 
+}
+
+
+
+// ///////////////////////////////////////
+//
 // Init / Binds
 //
 // ///////////////////////////////////////
@@ -882,3 +900,21 @@ $("a.button").click(function(){$("#gameboy").removeClass("off"); $("#wrapper").a
 setInterval(saveGame, 8000);
 if(IsEdge())
     $("body").addClass("is-edge");
+
+// Controller input
+gameControl.on('connect', gamepad => {
+    lastGamepad = gamepad;
+    console.log('Gamepad connected!', gamepad);
+    gamepad.set('axeThreshold', [0.4, 0.4]);
+    bindGamepadKey(gamepad, 'right', 39);
+    bindGamepadKey(gamepad, 'left', 37);
+    bindGamepadKey(gamepad, 'up', 38);
+    bindGamepadKey(gamepad, 'down', 40);
+    bindGamepadKey(gamepad, 'button15', 39);
+    bindGamepadKey(gamepad, 'button14', 37);
+    bindGamepadKey(gamepad, 'button12', 38);
+    bindGamepadKey(gamepad, 'button13', 40);
+    bindGamepadKey(gamepad, 'button0', 69);
+    bindGamepadKey(gamepad, 'button1', 69);
+    bindGamepadKey(gamepad, 'button9', 69);
+});
