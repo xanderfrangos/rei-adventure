@@ -287,33 +287,33 @@ function doActivateButton() {
     if(player.position.direction == "right") {
         tmpAc1 = isActivatorAt(player.position.tx + 1, player.position.ty);
         tmpAc2 = isActivatorAt(player.position.tx + 1, player.position.ty + 1);
-        if(tmpAc1 !== false) {
+        if(tmpAc1 !== false && player.position.oy < 6) {
             tmpAc1();
-        } else if( player.position.oy > 6 && tmpAc2 !== false) {
+        } else if( player.position.oy >= 6 && tmpAc2 !== false) {
             tmpAc2();
         }
     } else if(player.position.direction == "left") {
         tmpAc1 = isActivatorAt(player.position.tx - 1, player.position.ty);
         tmpAc2 = isActivatorAt(player.position.tx - 1, player.position.ty + 1);
-        if(tmpAc1 !== false) {
+        if(tmpAc1 !== false && player.position.oy < 6) {
             tmpAc1();
-        } else if( player.position.oy > 6 && tmpAc2 !== false) {
+        } else if( player.position.oy >= 6 && tmpAc2 !== false) {
             tmpAc2();
         }
     } else if(player.position.direction == "down") {
         tmpAc1 = isActivatorAt(player.position.tx, player.position.ty + 1);
         tmpAc2 = isActivatorAt(player.position.tx + 1, player.position.ty + 1);
-        if(tmpAc1 !== false) {
+        if(tmpAc1 !== false && player.position.ox < 9) {
             tmpAc1();
-        } else if( player.position.ox > 6 && tmpAc2 !== false) {
+        } else if( player.position.ox >= 9 && tmpAc2 !== false) {
             tmpAc2();
         }
     } else if(player.position.direction == "up") {
         tmpAc1 = isActivatorAt(player.position.tx, player.position.ty - 1);
         tmpAc2 = isActivatorAt(player.position.tx + 1, player.position.ty - 1);
-        if(tmpAc1 !== false) {
+        if(tmpAc1 !== false && player.position.ox < 9) {
             tmpAc1();
-        } else if( player.position.ox > 6 && tmpAc2 !== false) {
+        } else if( player.position.ox >= 9 && tmpAc2 !== false) {
             tmpAc2();
         }
     } 
