@@ -271,6 +271,7 @@ var objects = [
         solid: true,
         width: 2,
         height: 2,
+        activate: function(){showDialogue("tree");},
     },
     {
         name:"planks",

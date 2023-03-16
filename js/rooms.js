@@ -742,6 +742,12 @@ var rooms = [
                 x:6,
                 y:6
             },
+            {
+                name: "girl",
+                x: 3,
+                y: 6,
+                activate:function(){showDialogue("girlIntro")}
+            },
 
         ],
 

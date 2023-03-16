@@ -270,6 +270,20 @@ var dialogue = [
         next: "bfChoices2"
     },
 
+
+    // Dorm Intro Girl
+    {
+        id: "girlIntro",
+        text: "\"Did you know that you can move faster by holding Shift (or some controller button)?\"",
+        next: "girlIntro2"
+    },
+    {
+        id: "girlIntro2",
+        text: "\"I don't know what that means, but it seems useful.\""
+    },
+
+
+
     // ///////////////////////////////////////
     //
     // Belle's House
@@ -1455,6 +1469,11 @@ var dialogue = [
     {
         id: "treeIntro",
         text: "\"After the Yule Ball, this Vegeta tree will have become 9001 years old, to the dismay of obsessive compulsives everywhere.\"",
+    },
+    
+    {
+        id: "tree",
+        text: "This tree looks pretty super! Just sayin'.",
     },
     
     {

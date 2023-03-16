@@ -13,6 +13,7 @@ var player = {
     controlsEnabled: true,
     inDialogue: false,
     isMoving: false,
+    isRunning: false,
     position: {
         tx: 2, // tile X
         ty: 3, // tile Y
@@ -51,8 +52,8 @@ var lastStepTimestamp = 0;
 var lastPlayerTimestamp = 0;
 
 var FPS = 61;
-var stepFPS = 3;
-var walkFPS = 144;
+var stepFPS = 4;
+var walkFPS = 61;
 
 var heldDirection = "none";
 var heldSecondDirection = "none";
@@ -217,6 +218,8 @@ function keyCodeString(keycode,e) {
         return "up";
     } else if(keycode == 40 || keycode == 83) {
         return "down";
+    }  else if(keycode == 16) {
+        return "run";
     } else if(keycode == 69 || keycode == 32) {
         if(e.type == "keyup")
             return "action";
@@ -233,6 +236,10 @@ function keydownEvent(e) {
     var tmpKey = keyCodeString(e.keyCode,e);
     if(!gameStarted) return false;
     if(tmpKey !== false) {
+        if(tmpKey === "run") {
+            player.isRunning = true;
+            tmpKey = "none";
+        }
         if(heldDirection == "none" || heldDirection == tmpKey)
             heldDirection = tmpKey;
         else
@@ -247,6 +254,10 @@ function keydownEvent(e) {
 function keyupEvent(e) {
     var tmpKey = keyCodeString(e.keyCode,e);
     if(!gameStarted) return false;
+    if(tmpKey === "run") {
+        player.isRunning = false;
+        tmpKey = "none";
+    }
     if(player.inDialogue && (tmpKey == "up" || tmpKey == "down"))
         currentDialogue.lastKey = "none";
     if(tmpKey == "action") {
@@ -754,17 +765,12 @@ function updateSteps(timestamp) {
 }
 
 function updateMovement(timestamp) {
-    if(timestamp - lastPlayerTimestamp >= (1000 / walkFPS)) {
-        var doTwice = false;
-        
-        if(timestamp - lastPlayerTimestamp >= (2000 / walkFPS))
-            doTwice = true;
-        
+    if(timestamp - lastPlayerTimestamp >= (1000 / walkFPS)) {        
         lastPlayerTimestamp = timestamp;
         tryMoveUpdate();
-        
-        if(doTwice)
-            tryMoveUpdate(); 
+        if(player.isRunning) {
+            tryMoveUpdate();
+        }
     }
 }
     
@@ -916,5 +922,11 @@ gameControl.on('connect', gamepad => {
     bindGamepadKey(gamepad, 'button13', 40);
     bindGamepadKey(gamepad, 'button0', 69);
     bindGamepadKey(gamepad, 'button1', 69);
+    bindGamepadKey(gamepad, 'button5', 69);
+    bindGamepadKey(gamepad, 'button7', 69);
     bindGamepadKey(gamepad, 'button9', 69);
+    bindGamepadKey(gamepad, 'button2', 16);
+    bindGamepadKey(gamepad, 'button3', 16);
+    bindGamepadKey(gamepad, 'button4', 16);
+    bindGamepadKey(gamepad, 'button6', 16);
 });
